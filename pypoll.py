@@ -6,17 +6,23 @@
 # The winner of the election based on popular vote
 
 # dependencies
-import datetime as dt
-now = dt.datetime.now()
-print("It is currently", now)
+import csv
+import os
 
-# assign variable for file to load and the path as value. We are telling computer to get .csv from Resources folder
-file_to_load = 'Resources/election_results.csv'
+# cwd was used to test if os.path.join works from cwd. I pasted the Resources folder into C:\Users\dylan and it returned with <_io.TextIOWrapper name='Resources\\election_results.csv' mode='r' encoding='cp1252'>
 
-# open file for reading. Note, variable doesn't need quotes but the mode does
-with open(file_to_load) as election_data:
+new_path = 'C:/Users/dylan/OneDrive/Desktop/Class/election-analysis/'
 
-# To do: perform analysis
+# os.chdir(new_path)
+# cwd = os.getcwd()
+# print(cwd)
+
+# Assign variable for the file to load and the path using indirect path
+file_to_load = os.path.join("Resources", "election_results.csv")
+
+# Open election results and read file, had to specify encoding type to utf-8
+with open(file_to_load, encoding='utf-8') as election_data:
+
+    # Print election_data
     print(election_data)
-# Close file. Note the syntax for closing is like a method? Closing the file ensures the data is preserved (if read) and any data is stored (if written)
-election_data.close()
+    # after printing I get the exact same return as direct path, not the one as shown in Canvas that starts with <open..>
