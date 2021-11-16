@@ -53,10 +53,27 @@ with open(file_to_load, encoding='utf-8') as election_data:
         # and increment vote count by 1 when passing through each row
         candidate_votes[candidate_name] += 1
 
+with open(file_to_save, 'w') as txt_file:
+    election_results = (
+        f"\nElection Results\n"
+        f"-------------------------\n"
+        f"Total Votes: {total_votes:,}\n"
+        f"-------------------------\n"
+    )
+    print(election_results, end="")
+    # save final vote count to text file
+    txt_file.write(election_results)
     for candidate_name in candidate_votes:
         votes = candidate_votes[candidate_name]
         vote_percentage = float(votes)/float(total_votes) * 100
-        print(f"{candidate_name}: {vote_percentage:.1f}% ({votes:,})\n")
+        candidate_results = (
+            f"{candidate_name}: {vote_percentage:.1f}% ({votes:,})\n")
+        
+        # print each candidate's vote info to terminal
+        print(candidate_results)
+
+        # save to text file
+        txt_file.write(candidate_results)
         # if and combo sets winning count and percentage to the candidate with those votes and percentage. 
         # Is the idea that the for loop will compare each candidate and only overwrite if it satisfies if and?
         if votes > winning_count and vote_percentage > winning_percentage:
@@ -69,9 +86,9 @@ with open(file_to_load, encoding='utf-8') as election_data:
         f"Winning Vote Count: {winning_count:,}\n"
         f"Winning Percentage: {winning_percentage:.1f}%\n"
         f"----------------------------\n")
-    
+       
     print(winning_candidate_summary)
-    
+    txt_file.write(winning_candidate_summary)
     # print winning candidate, vote count and percentage
     # print(f'{winning_candidate} has won the election with {winning_count} votes or {winning_percentage:.1f}% of the popular vote ')
     
