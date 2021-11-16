@@ -9,21 +9,17 @@
 import csv
 import os
 
-# Assign variable for the file to load and the path using indirect path
+# Assign variable to take value of path leading to csv to load
 file_to_load = os.path.join("Resources","election_results.csv")
+# Assign variable to take value of path leading to txt to save output into
+file_to_save = os.path.join("analysis", "election_analysis.txt")
 
 # Open election results and read file, had to specify encoding type to utf-8 because it was defaulting to 1252
 with open(file_to_load, encoding='utf-8') as election_data:
 
-    # Print election_data
-    print(election_data)
-    # after printing I get the exact same return as direct path: <_io.TextIOWrapper name='Resources\\election_results.csv' mode='r' encoding='utf-8'>
+    # Read file object with reader function
+    file_reader = csv.reader(election_data)
+    # Print header row
+    headers = next(file_reader)
+    print(headers)
 
-# Create filename variable to a direct or indirect path to the file
-file_to_save = os.path.join("analysis", "election_analysis.txt")
-
-# Using with statement open election_analysis.txt for writing 
-with open(file_to_save, 'w') as txt_file:
-
-    # write in txt_file
-    txt_file.write('Counties in the Election\n------------------------\nArapahoe\nDenver\nJefferson')
