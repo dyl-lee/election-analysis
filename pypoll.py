@@ -34,10 +34,11 @@ with open(file_to_load, encoding='utf-8') as election_data:
         total_votes += 1
 
         # reference index corresponding to candidate column
-        
         candidate_name = row[2]
         
+        # if name is not in options list...
         if candidate_name not in candidate_options:
+            # add it to list
             candidate_options.append(candidate_name)
 
 print(candidate_options)
