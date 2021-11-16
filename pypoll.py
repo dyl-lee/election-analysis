@@ -17,6 +17,9 @@ file_to_save = os.path.join("analysis", "election_analysis.txt")
 # initialize vote counter to 0 before opening file
 total_votes = 0
 
+# Declare new list to store candidate names
+candidate_options = []
+
 # Open election results and read file, had to specify encoding type to utf-8 because it was defaulting to 1252
 with open(file_to_load, encoding='utf-8') as election_data:
 
@@ -29,5 +32,12 @@ with open(file_to_load, encoding='utf-8') as election_data:
     for row in file_reader:
         # increment accumulator by 1
         total_votes += 1
-# Print total votes
-print(total_votes)
+
+        # reference index corresponding to candidate column
+        
+        candidate_name = row[2]
+        
+        if candidate_name not in candidate_options:
+            candidate_options.append(candidate_name)
+
+print(candidate_options)
