@@ -22,11 +22,8 @@ with open(file_to_load, encoding='utf-8') as election_data:
 # Create filename variable to a direct or indirect path to the file
 file_to_save = os.path.join("analysis", "election_analysis.txt")
 
-# Using the open() function with mode w, write data to file
-outfile = open(file_to_save,"w")
+# Using with statement open election_analysis.txt for writing 
+with open(file_to_save, 'w') as txt_file:
 
-# Write some data to file
-outfile.write("Hello World")
-
-# Close file
-outfile.close()
+    # write in txt_file
+    txt_file.write('Counties in the Election\n------------------------\nArapahoe\nDenver\nJefferson')
