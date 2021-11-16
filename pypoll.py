@@ -20,6 +20,9 @@ total_votes = 0
 # Declare new list to store candidate names
 candidate_options = []
 
+# Declare empty dictionary to store total votes to each candidate as for loop works
+candidate_votes = {}
+
 # Open election results and read file, had to specify encoding type to utf-8 because it was defaulting to 1252
 with open(file_to_load, encoding='utf-8') as election_data:
 
@@ -36,9 +39,12 @@ with open(file_to_load, encoding='utf-8') as election_data:
         # reference index corresponding to candidate column
         candidate_name = row[2]
         
-        # if name is not in options list...
+        # if name is not in options list i.e. if name is unique...
         if candidate_name not in candidate_options:
-            # add it to list
+            # then add it to list
             candidate_options.append(candidate_name)
-
-print(candidate_options)
+            # and create key for each candidate, initialize to 0 
+            candidate_votes[candidate_name] = 0
+        # and increment vote count by 1 when passing through each row
+        candidate_votes[candidate_name] += 1
+print(candidate_votes)
