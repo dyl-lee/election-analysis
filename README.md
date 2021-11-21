@@ -2,10 +2,9 @@
 
 ## Project Overview
 
-## Resources
+## Resources 
 
-## Summary 
+## Election Audit Results
 
-## Challenge Overview
-
-## Challenge Summary
+## Election Audit Summary
+Could we just add more columns and pull more data? 
