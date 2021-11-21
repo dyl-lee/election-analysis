@@ -29,6 +29,6 @@ Analysis of the election audit reported, [as printed](https://github.com/dyl-lee
 ## Summary 
 This script has the potential to be extended for use beyond the Colorado election. As long as the `csv` file contains vote counts for a given region (state, federal, etc.), variables in `PyPoll.py` involving a region could be modified to something more generic instead of "county", as in the image below:
 
-![counties to region change](Resources/counties_to_region.png)
+![counties to region change]
 
 If the format of the `csv` changes, this will require adjustment to which index to extract this regional information. This is possible since `PyPoll.py` appends its county list based on index and the condition that ensures the list only contains unique counties. The general format of the For loop and If conditions is flexible enough to be reused to report supplementary data, as long as the indexes for extraction are adjust as well. Data such as voter demographics or distribution of submitted voting methods (mail-in ballots, punch cards or DRE)  may be informative metrics for any election committee interested in using this script.
