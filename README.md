@@ -1,7 +1,7 @@
 # election-analysis
 
 ## Project Overview
-This script was written to analyze and report the results of an election audit for a US congressional precinct in Colorado. The Election Commission would like the following details reported to certify this congressional race:
+This script was developed to analyze and report the results of an election audit for a US congressional precinct in Colorado. The Election Commission would like the following details reported to certify this congressional race:
 * Total number of votes cast
 * List of candidates who received votes
 * Total number of votes per candidate
@@ -31,4 +31,4 @@ This script has the potential to be extended for use beyond the Colorado electio
 
 ![counties to region change](Resources/counties_to_region.png)
 
-If the format of the `csv` changes, this will require adjustment to which index to extract this regional information. This is possible since `PyPoll.py` appends its county list based on index and the condition that ensures the list only contains unique counties. The general format of the For loop and If conditions is flexible enough to be reused to report supplementary data, as long as the indexes for extraction are adjust as well. Data such as voter demographics or distribution of submitted voting methods (mail-in ballots, punch cards or DRE)  may be informative metrics for any election committee interested in using this script.
+If the format of the `csv` changes, this will require adjustment to which index to extract this regional information. This is possible since `PyPoll.py` appends its county list based on index and the condition that ensures the list only contains unique counties. The general format of the For loop and If conditions is flexible enough to be reused to report supplementary data, as long as the indexes for extraction are adjusted as well. Data such as voter demographics or distribution of submitted voting methods (mail-in ballots, punch cards or DRE) may be informative metrics for any election committee interested in using this script.
